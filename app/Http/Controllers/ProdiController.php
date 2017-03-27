@@ -6,20 +6,18 @@ use App\Prodi;
 use Illuminate\Http\Request;
 use App\User;
 
-use App\Http\Requests;
-
 class ProdiController extends Controller
 {
     public function getIndex(Request $request)
     {
-        $prodis = Prodi::orderBy('id_ProgramStudi', 'DESC')->paginate(5);
+        $prodis = Prodi::OrderBy('id_ProgramStudi', 'DESC')->paginate(5);
         return view('prodi.index', compact('prodis'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     public function getTambah()
     {
-        $users = User::all();
+        $users = User::All();
         return view('prodi.tambah', compact('users'));
 
     }
@@ -43,13 +41,13 @@ class ProdiController extends Controller
 
     public function getLihat($id)
     {
-        $prodi = Prodi::find($id);
+        $prodi = Prodi::Find($id);
         return view('prodi.lihat', compact('prodi'));
     }
 
     public function getEdit($id)
     {
-        $prodis = Prodi::find($id);
+        $prodis = Prodi::Find($id);
         $users = User::all();
         return view('prodi.edit', compact('prodis','users'));
 
@@ -63,7 +61,7 @@ class ProdiController extends Controller
             'nama_ProgramStudi' => 'required',
         ]);
 
-        Prodi::find($id)->update($request->all());
+        Prodi::Find($id)->update($request->all());
         return redirect()->route('prodi.index')
             ->with('success', 'Prodi updated successfully');
     }
