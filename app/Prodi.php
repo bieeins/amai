@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Prodi extends Model
 {
     protected $primaryKey = 'id_ProgramStudi';
-    protected $table ='program_studis';
+    protected $table = 'program_studi';
     protected $fillable =[
         'id_Fakultas',
         'id_Jurusan',

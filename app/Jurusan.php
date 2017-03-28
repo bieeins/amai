@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jurusan extends Model
 {
-    //
+    protected $primaryKey = 'id_Jurusan';
+    protected $table = 'jurusan';
+    protected $fillable = [
+        'id_Fakultas',
+        'id_Jurusan',
+        'nama_Jurusan',
+    ];
 }
