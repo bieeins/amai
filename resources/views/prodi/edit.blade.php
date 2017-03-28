@@ -34,7 +34,7 @@
                         @endif
 
                         {!! Form::model($prodis, ['method' => 'PUT','route' => ['prodi.edit', $prodis->id_ProgramStudi]]) !!}
-
+                        <br />
                         <div class="form-group has-feedback">
                             <select name="id_Fakultas" class="form-control">
                                 <option value="">Pilih Fakultas</option>
@@ -62,6 +62,7 @@
                                     {!! Form::text('nama_ProgramStudi', null, array('placeholder' => 'Nama Lengkap','class' => 'form-control')) !!}
                                 </div>
                             </div>
+                            <br />
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>

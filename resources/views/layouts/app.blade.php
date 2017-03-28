@@ -5,7 +5,7 @@
     @include('layouts.partials.htmlheader')
 @show
 
-<body class="skin-red-light fixed  ">
+<body class="skin-red-light fixed ">
 <div class="wrapper">
 
     @include('layouts.partials.mainheader')
