@@ -12,7 +12,7 @@ class CreateStandarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('standars', function (Blueprint $table) {
+        Schema::create('standar', function (Blueprint $table) {
             $table->increments('id_Standar');
             $table->string('standar',150);
             $table->double('bobot');
@@ -27,6 +27,6 @@ class CreateStandarsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('standars');
+        Schema::drop('standar');
     }
 }

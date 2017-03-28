@@ -13,7 +13,9 @@ class CreateJurusansTable extends Migration
     public function up()
     {
         Schema::create('jurusans', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_Jurusan');
+            $table->integer('id_Fakultas');
+            $table->string('nama_Jurusan');
             $table->timestamps();
         });
     }

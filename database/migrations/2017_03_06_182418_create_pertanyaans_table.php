@@ -12,7 +12,7 @@ class CreatePertanyaansTable extends Migration
      */
     public function up()
     {
-        Schema::create('pertanyaans', function (Blueprint $table) {
+        Schema::create('pertanyaan', function (Blueprint $table) {
             $table->increments('id_Pertanyaan');
             $table->integer('id_SubStandar');
             $table->string('pertanyaan');
@@ -29,6 +29,6 @@ class CreatePertanyaansTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pertanyaans');
+        Schema::drop('pertanyaan');
     }
 }

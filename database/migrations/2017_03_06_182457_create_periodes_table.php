@@ -12,7 +12,7 @@ class CreatePeriodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('periodes', function (Blueprint $table) {
+        Schema::create('periode', function (Blueprint $table) {
             $table->increments('id_Periode');
             $table->string('nama_Periode');
             $table->date('awal_Periode');
@@ -29,6 +29,6 @@ class CreatePeriodesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('periodes');
+        Schema::drop('periode');
     }
 }

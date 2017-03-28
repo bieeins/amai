@@ -12,7 +12,7 @@ class CreateSubstandarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('substandars', function (Blueprint $table) {
+        Schema::create('substandar', function (Blueprint $table) {
             $table->increments('id_SubStandart');
             $table->integer('id_Standar');
             $table->string('subStandar');
@@ -27,6 +27,6 @@ class CreateSubstandarsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('substandars');
+        Schema::drop('substandar');
     }
 }

@@ -12,7 +12,7 @@ class CreateProgramStudisTable extends Migration
      */
     public function up()
     {
-        Schema::create('program_studis', function (Blueprint $table) {
+        Schema::create('program_studi', function (Blueprint $table) {
             $table->increments('id_ProgramStudi');
             $table->integer('id_Fakultas');
             $table->integer('id_Jurusan');
@@ -28,6 +28,6 @@ class CreateProgramStudisTable extends Migration
      */
     public function down()
     {
-        Schema::drop('program_studis');
+        Schema::drop('program_studi');
     }
 }
