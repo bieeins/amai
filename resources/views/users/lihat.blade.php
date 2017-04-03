@@ -15,36 +15,48 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="pull-left">
-                                    <a class="btn btn-primary" href="{{ route('user.tambah') }}"> Tambah User</a>
+                                <div class="">
+                                    <a class="btn btn-primary btn-sm pull-left" href="{{ route('user.tambah') }}"> Tambah
+                                        User</a>
+                                    <a class="btn btn-primary btn-sm pull-right" href="{{ route('user.index') }}">Back</a>
                                 </div>
                             </div>
                         </div>
-                        <br />
+                        <br/>
                         <div class="row">
-
                             <div class="col-lg-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Nama Lengkap :</strong>
-                                    {{ $users->full_Name }}
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Username :</strong>
-                                    {{ $users->username }}
-                                </div>
-                            </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Email :</strong>
-                                    {{ $users->email }}
-                                </div>
-                            </div>
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Program Studi</th>
+                                        <td>{{ $users->prodi->nama_ProgramStudi }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nama Lengkap</th>
+                                        <td>{{ $users->full_Name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Username</th>
+                                        <td>{{ $users->username }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>{{ $users->email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Roles</th>
+                                        <td>{{ ucfirst($users->roles)  }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Status</th>
+                                        <td>{{ ucfirst($users->status)  }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Keterangan</th>
+                                        <td>{{ $users->keterangan }}</td>
+                                    </tr>
 
-                            <div class="col-md-1 pull-right">
-                                <a class="btn btn-primary" href="{{ route('user.index') }}">Back</a>
+                                </table>
                             </div>
 
                         </div>

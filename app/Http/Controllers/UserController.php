@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Prodi;
 use Illuminate\Http\Request;
 
 use App\User;
@@ -15,10 +16,9 @@ class UserController extends Controller
 
     public function getIndex(Request $request)
     {
-//        $users = User::orderBy('id', 'DESC')->paginate(5);
         $users = User::paginate(5);
         $jumlah_user = User::count();
-        return view('users.index', compact('users','jumlah_user'))
+        return view('users.index', compact('users'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -30,25 +30,33 @@ class UserController extends Controller
 
     public function getTambah()
     {
-        return view('users.tambah');
+        $prodi = Prodi::all();
+        return view('users.tambah',compact('prodi'));
 
     }
 
     public function getEdit($id)
     {
         $users = User::find($id);
-        return view('users.edit', compact('users'));
+        $prodi = Prodi::all();
+        return view('users.edit', compact('users','prodi'));
 
     }
 
     public function putEdit(Request $request, $id)
     {
         $this->validate($request, [
-            'full_Name' => 'required',
-            'email' => 'required',
+            'password' => 'confirmed|min:6',
         ]);
-
-        User::find($id)->update($request->all());
+        User::find($id)->update([
+            'id_ProgramStudi' => $request['id_ProgramStudi'],
+            'full_Name' => $request['full_Name'],
+            'password' => bcrypt($request['password']),
+            'email' => $request['email'],
+            'roles' => $request['roles'],
+            'keterangan' => $request['keterangan'],
+            'status' => $request['status'],
+        ]);
         return redirect()->route('user.index')
             ->with('success', 'User updated successfully');
     }
@@ -65,7 +73,7 @@ class UserController extends Controller
             'status' => 'required',
         ]);
 
-//        User::create($request->all());
+
         User::create([
             'full_Name' => $request['full_name'],
             'roles' => $request['roles'],

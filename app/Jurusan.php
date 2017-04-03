@@ -13,4 +13,10 @@ class Jurusan extends Model
         'id_Jurusan',
         'nama_Jurusan',
     ];
+
+    public function fakultas()
+    {
+        return $this->hasOne('App\Fakultas','id_Fakultas');
+    }
+
 }

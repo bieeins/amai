@@ -18,38 +18,41 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="pull-left">
-                                    <a class="btn btn-primary" href="{{ route('prodi.tambah') }}"> Tambah Prodi</a>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('prodi.tambah') }}"> Tambah Prodi</a>
                                 </div>
                             </div>
                         </div>
 
                         @if ($message = Session::get('success'))
-                            <br />
+                            <br/>
                             <div class="alert alert-success">
                                 <p>{{ $message }}</p>
                             </div>
                         @endif
-                        <br />
+                        <br/>
 
-                        <table class="table table-bordered">
+                        <table class="table table-striped">
                             <tr>
                                 <th>No</th>
-                                <th>Nama Prodi</th>
-                                <th>Jurusan</th>
                                 <th>Fakultas</th>
-                                <th width="280px">Action</th>
+                                <th>Jurusan</th>
+                                <th>Nama Prodi</th>
+                                <th width="">Action</th>
                             </tr>
+
                             @foreach ($prodis as $key => $prodi)
                                 <tr>
                                     <td>{{ ++$i }}</td>
+                                    <td>{{ $prodi->fakultas->nama_Fakultas }}</td>
+                                    <td>{{ $prodi->jurusan->nama_Jurusan }}</td>
                                     <td>{{ $prodi->nama_ProgramStudi }}</td>
-                                    <td>{{ $prodi->id_Jurusan }}</td>
-                                    <td>{{ $prodi->id_Fakultas }}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('prodi.lihat',$prodi->id_ProgramStudi) }}">Show</a>
-                                        <a class="btn btn-primary" href="{{ route('prodi.edit',$prodi->id_ProgramStudi) }}">Edit</a>
+                                        <a class="btn btn-default btn-sm"
+                                           href="{{ route('prodi.lihat',$prodi->id_ProgramStudi) }}">Show</a>
+                                        <a class="btn btn-default btn-sm"
+                                           href="{{ route('prodi.edit',$prodi->id_ProgramStudi) }}">Edit</a>
                                         {!! Form::open(['method' => 'DELETE','route' => ['prodi.hapus', @$prodi->id_ProgramStudi],'style'=>'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::submit('Delete', ['class' => 'btn btn-default btn-sm btn-warning']) !!}
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>

@@ -15,47 +15,52 @@ Route::group(['middleware' => 'guest'], function () {
     ]);
 });
 
+#Route jurusan
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('jurusan', 'JurusanController');
+});
+
+
 #Route perfix user
 Route::group(['prefix' => 'users'], function () {
-    Route::group(['middleware' => 'auth'], function () {
-        Route::get('/', [
-            'uses' => 'UserController@getIndex',
-            'as' => 'user.index'
-        ]);
-        Route::get('/lihat/{id}', [
-            'uses' => 'UserController@getLihat',
-            'as' => 'user.lihat'
-        ]);
+    Route::get('/', [
+        'uses' => 'UserController@getIndex',
+        'as' => 'user.index'
+    ]);
+    Route::get('/lihat/{id}', [
+        'uses' => 'UserController@getLihat',
+        'as' => 'user.lihat'
+    ]);
 
-        Route::get('/edit/{id}', [
-            'uses' => 'UserController@getEdit',
-            'as' => 'user.edit'
-        ]);
-        Route::put('/edit/{id}', [
-            'uses' => 'UserController@putEdit',
-            'as' => 'user.edit'
-        ]);
+    Route::get('/edit/{id}', [
+        'uses' => 'UserController@getEdit',
+        'as' => 'user.edit'
+    ]);
+    Route::put('/edit/{id}', [
+        'uses' => 'UserController@putEdit',
+        'as' => 'user.edit'
+    ]);
 
-        Route::get('/tambah', [
-            'uses' => 'UserController@getTambah',
-            'as' => 'user.tambah'
-        ]);
-        Route::post('/tambah', [
-            'uses' => 'UserController@postTambah',
-            'as' => 'user.tambah'
-        ]);
+    Route::get('/tambah', [
+        'uses' => 'UserController@getTambah',
+        'as' => 'user.tambah'
+    ]);
+    Route::post('/tambah', [
+        'uses' => 'UserController@postTambah',
+        'as' => 'user.tambah'
+    ]);
 
-        Route::Delete('/hapus/{id}', [
-            'uses' => 'UserController@Hapus',
-            'as' => 'user.hapus'
-        ]);
+    Route::Delete('/hapus/{id}', [
+        'uses' => 'UserController@Hapus',
+        'as' => 'user.hapus'
+    ]);
 
-        Route::get('/logout', [
-            'uses' => 'UserController@getLogout',
-            'as' => 'user.logout'
-        ]);
-    });
+    Route::get('/logout', [
+        'uses' => 'UserController@getLogout',
+        'as' => 'user.logout'
+    ]);
 });
+
 
 #Route perfix prodi
 Route::group(['prefix' => 'prodi'], function () {

@@ -58,16 +58,15 @@
                             </div>
                             <div class="form-group has-feedback">
                                 <select class="form-control" name="prodi" id="">
-                                    <option value="" selected="selected">Pilih Prodi User</option>
-                                    <option value="superadmin">Superadmin</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="reviewer">Reviewer</option>
-                                    <option value="prodi">Prodi</option>
+                                    <option value="">Pilih Prodi</option>
+                                    @foreach ($prodi as $data)
+                                        <option value="{{ $data->id_ProgramStudi }}">{{ $data->nama_ProgramStudi }}</option>
+                                    @endforeach>
                                 </select>
                             </div>
                             <div class="form-group has-feedback">
                                 <select class="form-control" name="roles" id="">
-                                    <option value="" selected="selected">Pilih Roles User</option>
+                                    <option value="" selected="selected">Pilih Roles</option>
                                     <option value="superadmin">Superadmin</option>
                                     <option value="admin">Admin</option>
                                     <option value="reviewer">Reviewer</option>
@@ -76,7 +75,7 @@
                             </div>
                             <div class="form-group has-feedback">
                                 <select class="form-control" name="status" id="">
-                                    <option value="" selected="selected">Pilih Status User</option>
+                                    <option value="" selected="selected">Pilih Status</option>
                                     <option value="enable">Aktif</option>
                                     <option value="disable">Tidak Aktif</option>
                                 </select>
@@ -93,7 +92,7 @@
                                     <button type="submit" class="btn btn-primary btn-block btn-flat">Simpan</button>
                                 </div><!-- /.col -->
                                 <div class="col-md-2 pull-right">
-                                    <a class="btn btn-primary btn-block btn-flat"
+                                    <a class="btn btn-primary btn-block btn-sm btn-flat"
                                        href="{{ route('user.index') }}">Back</a>
                                 </div>
                             </div>

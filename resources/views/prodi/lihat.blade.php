@@ -18,43 +18,43 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="pull-left">
-                                    <a class="btn btn-primary" href="{{ route('prodi.tambah') }}"> Tambah Prodi</a>
+                                <div class="">
+                                    <a class="btn btn-primary btn-sm pull-left" href="{{ route('prodi.tambah') }}"> Tambah Prodi</a>
+                                    <a class="btn btn-primary btn-sm pull-right" href="{{ route('prodi.index') }}">Back</a>
                                 </div>
                             </div>
                         </div>
-                        <br />
+                        <br/>
                         <div class="row">
-
                             <div class="col-lg-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Nama Lengkap :</strong>
-                                    {{ $prodi->nama_ProgramStudi }}
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Username :</strong>
-                                    {{ $prodi->id_Jurusan }}
-                                </div>
-                            </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Email :</strong>
-                                    {{ $prodi->id_Fakultas }}
-                                </div>
-                            </div>
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Program Studi</th>
+                                        <td>{{ $prodis->nama_ProgramStudi }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Jurusan</th>
+                                        <td>{{ $prodis->jurusan->nama_Jurusan }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fakultas</th>
+                                        <td>{{ $prodis->fakultas->nama_Fakultas }}</td>
+                                    </tr>
 
-                            <div class="col-md-1 pull-right">
-                                <a class="btn btn-primary" href="{{ route('prodi.index') }}">Back</a>
+                                </table>
                             </div>
 
                         </div>
 
                     </div>
                 </div>
+
+                </div>
+
             </div>
         </div>
+    </div>
+    </div>
     </div>
 @endsection
