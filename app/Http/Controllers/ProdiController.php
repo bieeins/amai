@@ -12,7 +12,6 @@ class ProdiController extends Controller
 {
     public function getIndex(Request $request)
     {
-//        $prodis = Prodi::OrderBy('id_ProgramStudi', 'DESC')->paginate(5);
         $prodis = Prodi::paginate(5);
         $jumlah_prodi = Prodi::count();
         return view('prodi.index', compact('prodis', 'jumlah_prodi'))
@@ -71,5 +70,15 @@ class ProdiController extends Controller
         Prodi::Find($id)->update($request->all());
         return redirect()->route('prodi.index')
             ->with('success', 'Prodi updated successfully');
+    }
+
+    public function Hapus($id)
+    {
+        //find result by id and delete
+        Prodi::find($id)->delete();
+
+        //Redirecting to index() method
+        return redirect()->route('prodi.index')
+            ->with('success', 'Prodi Delete successfully');
     }
 }

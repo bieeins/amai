@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    Program Studi
+    Fakultas
 @endsection
 @section('contentheader_title')
-    Program Studi Management
+    Fakultas Management
 @endsection
 
 @section('main-content')
@@ -12,17 +12,9 @@
         <div class="row">
             <div class="col-md-11 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color: #dd4b39;color: #ffffff">Program Studi</div>
+                    <div class="panel-heading" style="background-color: #dd4b39;color: #ffffff">Fakultas</div>
 
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-lg-12 margin-tb">
-                                <div class="pull-right">
-                                    <a class="btn btn-primary" href="{{ route('prodi.index') }}"> Back</a>
-                                </div>
-                            </div>
-                        </div>
-
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
                                 <ul>
@@ -33,38 +25,20 @@
                             </div>
                         @endif
 
-                        {!! Form::model($prodis, ['method' => 'PUT','route' => ['prodi.edit', $prodis->id_ProgramStudi]]) !!}
-                        <br />
-                        <div class="form-group has-feedback">
-                            <select name="id_Fakultas" class="form-control">
-                                <option value="">Pilih Fakultas</option>
-                                @foreach ($users as $data)
-                                    <option value="{{ $data->id }}">{{ $data->username }} [{{ $data->full_Name}}]</option>
-                                @endforeach
-                            </select>
+                        {!! Form::model($fakultas, ['method' => 'PUT','route' => ['fakultas.update', $fakultas->id_Fakultas]]) !!}
+                        <br/>
 
-                        </div>
-
-                        <div class="form-group has-feedback">
-                            {{--{!! Form::label('users', 'Jurusan', array('class' => 'control-label')) !!}--}}
-                            <select name="id_Jurusan" class="form-control">
-                                <option value="">Pilih Jurusan</option>
-                                @foreach ($users as $data)
-                                    <option value="{{ $data->id }}">{{ $data->username }} [{{ $data->full_Name}}]</option>
-                                @endforeach
-                            </select>
-
-                        </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Nama Lengkap:</strong>
-                                    {!! Form::text('nama_ProgramStudi', null, array('placeholder' => 'Nama Lengkap','class' => 'form-control')) !!}
+                                    <strong>Nama Fakultas :</strong>
+                                    {!! Form::text('nama_Fakultas', null, array('placeholder' => 'Nama Fakultas','class' => 'form-control')) !!}
                                 </div>
                             </div>
-                            <br />
-                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                            <br/>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <button type="submit" class="btn btn-primary btn-sm pull-left">Submit</button>
+                                <a class="btn btn-primary btn-sm pull-right" href="{{ route('fakultas.index') }}"> Back</a>
                             </div>
                         </div>
 

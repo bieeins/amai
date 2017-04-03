@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    Program Studi
+    Jurusan
 @endsection
 @section('contentheader_title')
-    Program Studi Management
+    Jurusan Management
 @endsection
 
 @section('main-content')
@@ -12,50 +12,50 @@
         <div class="row">
             <div class="col-md-11 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color: #dd4b39;color: #ffffff">Program Studi</div>
+                    <div class="panel-heading" style="background-color: #dd4b39;color: #ffffff">Jurusan</div>
 
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="pull-left">
-                                    <a class="btn btn-primary" href="{{ route('prodi.tambah') }}"> Tambah Prodi</a>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('jurusan.create') }}"> Tambah Jurusan</a>
                                 </div>
                             </div>
                         </div>
 
                         @if ($message = Session::get('success'))
-                            <br />
+                            <br/>
                             <div class="alert alert-success">
                                 <p>{{ $message }}</p>
                             </div>
                         @endif
-                        <br />
+                        <br/>
 
-                        <table class="table table-bordered">
+                        <table class="table table-hover table-bordered table-striped">
                             <tr>
                                 <th>No</th>
-                                <th>Nama Prodi</th>
-                                <th>Jurusan</th>
                                 <th>Fakultas</th>
-                                <th width="280px">Action</th>
+                                <th>Jurusan</th>
+                                <th width="">Action</th>
                             </tr>
-                            @foreach ($prodis as $key => $prodi)
+                            @foreach ($jurusan as $key => $data)
                                 <tr>
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $prodi->nama_ProgramStudi }}</td>
-                                    <td>{{ $prodi->id_Jurusan }}</td>
-                                    <td>{{ $prodi->id_Fakultas }}</td>
+                                    <td>{{ $data->fakultas->nama_Fakultas }}</td>
+                                    <td>{{ $data->nama_Jurusan }}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('prodi.lihat',$prodi->id_ProgramStudi) }}">Show</a>
-                                        <a class="btn btn-primary" href="{{ route('prodi.edit',$prodi->id_ProgramStudi) }}">Edit</a>
-                                        {!! Form::open(['method' => 'DELETE','route' => ['prodi.hapus', @$prodi->id_ProgramStudi],'style'=>'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        <a class="btn btn-default btn-sm"
+                                           href="{{ route('jurusan.show',$data->id_Jurusan) }}">Show</a>
+                                        <a class="btn btn-default btn-sm"
+                                           href="{{ route('jurusan.edit',$data->id_Jurusan) }}">Edit</a>
+                                        {!! Form::open(['method' => 'DELETE','route' => ['jurusan.destroy', @$data->id_Jurusan],'style'=>'display:inline']) !!}
+                                        {!! Form::submit('Delete', ['class' => 'btn btn-sm btn-warning']) !!}
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>
                             @endforeach
                         </table>
-                        {!! $prodis->render() !!}
+                        {!! $jurusan->render() !!}
                     </div>
                 </div>
             </div>

@@ -31,7 +31,7 @@
                         @endif
                         <br/>
 
-                        <table class="table table-striped">
+                        <table class="table table-hover table-bordered table-striped">
                             <tr>
                                 <th>No</th>
                                 <th>Fakultas</th>
@@ -52,7 +52,7 @@
                                         <a class="btn btn-default btn-sm"
                                            href="{{ route('prodi.edit',$prodi->id_ProgramStudi) }}">Edit</a>
                                         {!! Form::open(['method' => 'DELETE','route' => ['prodi.hapus', @$prodi->id_ProgramStudi],'style'=>'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-default btn-sm btn-warning']) !!}
+                                        {!! Form::submit('Delete', ['class' => 'btn btn-sm btn-warning']) !!}
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>

@@ -4,6 +4,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+#Route guest
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [
         'uses' => 'UserController@getLogin',
@@ -15,11 +16,45 @@ Route::group(['middleware' => 'guest'], function () {
     ]);
 });
 
-#Route jurusan
 Route::group(['middleware' => 'auth'], function () {
+    #Route jurusan
     Route::resource('jurusan', 'JurusanController');
-});
 
+    #Route fakultas
+    Route::resource('fakultas', 'FakultasController');
+
+    #Route perfix prodi
+    Route::group(['prefix' => 'prodi'], function () {
+        Route::get('/', [
+            'uses' => 'ProdiController@getIndex',
+            'as' => 'prodi.index'
+        ]);
+        Route::get('/lihat/{id}', [
+            'uses' => 'ProdiController@getLihat',
+            'as' => 'prodi.lihat'
+        ]);
+        Route::get('/edit/{id}', [
+            'uses' => 'ProdiController@getEdit',
+            'as' => 'prodi.edit'
+        ]);
+        Route::put('/edit/{id}', [
+            'uses' => 'ProdiController@putEdit',
+            'as' => 'prodi.edit'
+        ]);
+        Route::get('/tambah', [
+            'uses' => 'ProdiController@getTambah',
+            'as' => 'prodi.tambah'
+        ]);
+        Route::post('/tambah', [
+            'uses' => 'ProdiController@postTambah',
+            'as' => 'prodi.tambah'
+        ]);
+        Route::Delete('/hapus/{id}', [
+            'uses' => 'ProdiController@Hapus',
+            'as' => 'prodi.hapus'
+        ]);
+    });
+});
 
 #Route perfix user
 Route::group(['prefix' => 'users'], function () {
@@ -62,41 +97,6 @@ Route::group(['prefix' => 'users'], function () {
 });
 
 
-#Route perfix prodi
-Route::group(['prefix' => 'prodi'], function () {
-    Route::group(['middleware' => 'auth'], function () {
-        Route::get('/', [
-            'uses' => 'ProdiController@getIndex',
-            'as' => 'prodi.index'
-        ]);
-        Route::get('/lihat/{id}', [
-            'uses' => 'ProdiController@getLihat',
-            'as' => 'prodi.lihat'
-        ]);
 
-        Route::get('/edit/{id}', [
-            'uses' => 'ProdiController@getEdit',
-            'as' => 'prodi.edit'
-        ]);
-        Route::put('/edit/{id}', [
-            'uses' => 'ProdiController@putEdit',
-            'as' => 'prodi.edit'
-        ]);
-
-        Route::get('/tambah', [
-            'uses' => 'ProdiController@getTambah',
-            'as' => 'prodi.tambah'
-        ]);
-        Route::post('/tambah', [
-            'uses' => 'ProdiController@postTambah',
-            'as' => 'prodi.tambah'
-        ]);
-
-        Route::Delete('/hapus/{id}', [
-            'uses' => 'ProdiController@Hapus',
-            'as' => 'prodi.hapus'
-        ]);
-    });
-});
 
 

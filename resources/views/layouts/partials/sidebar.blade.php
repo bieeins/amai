@@ -38,21 +38,21 @@
                 <a href="#"><i class='fa fa-database'></i> <span>Master Data</span> <i
                             class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url('users')}}"><i class='fa fa-users'></i> <Span>User</Span> </a></li>
+                    <li class="active"><a href="{{url('users')}}"><i class='fa fa-users'></i> <Span>User</Span> </a></li>
+                    <li><a href="{{url('fakultas')}}"><i class='fa fa-institution'></i> <Span>Fakultas</Span> </a></li>
+                    <li><a href="{{url('jurusan')}}"><i class='fa  fa-mortar-board'></i> <Span>Jurusan</Span> </a></li>
                     <li><a href="{{url('prodi')}}"><i class='fa  fa-mortar-board'></i> <Span>Program Studi</Span> </a></li>
+                    <li><a href="{{url('#')}}"><i class='fa  fa-mortar-board'></i> <Span>Pertanyaan</Span> </a></li>
+                    <li><a href="{{url('#')}}"><i class='fa  fa-mortar-board'></i> <Span>Periode</Span> </a></li>
+                    <li><a href="{{url('#')}}"><i class='fa  fa-mortar-board'></i> <Span>#</Span> </a></li>
 
                 </ul>
             </li>
-            <li><a href="#"><i class='fa fa-link'></i>
+            <li ><a href="#"><i class='fa fa-link'></i>
                     <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i>
-                    <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i>
-                    <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i>
-                    <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
+
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i
+                <a href="#"><i class='fa fa-link'></i> <span>Menu Multilevel</span> <i
                             class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>

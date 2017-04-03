@@ -28,6 +28,10 @@
 
                                 <table class="table table-striped">
                                     <tr>
+                                        <th>Id User</th>
+                                        <td>{{ $users->id }}</td>
+                                    </tr>
+                                    <tr>
                                         <th>Program Studi</th>
                                         <td>{{ $users->prodi->nama_ProgramStudi }}</td>
                                     </tr>

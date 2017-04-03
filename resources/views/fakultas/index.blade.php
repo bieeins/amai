@@ -18,7 +18,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="pull-left">
-                                    <a class="btn btn-primary" href="{{ route('prodi.tambah') }}"> Tambah Fakultas</a>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('fakultas.create') }}"> Tambah Fakultas</a>
                                 </div>
                             </div>
                         </div>
@@ -31,31 +31,27 @@
                         @endif
                         <br />
 
-                        <table class="table table-bordered">
+                        <table class="table table-hover table-striped table-bordered">
                             <tr>
                                 <th>No</th>
-                                <th>Nama Prodi</th>
-                                <th>Jurusan</th>
                                 <th>Fakultas</th>
-                                <th width="280px">Action</th>
+                                <th width="">Action</th>
                             </tr>
-                            @foreach ($prodis as $key => $prodi)
+                            @foreach ($fakultas as $key => $datas)
                                 <tr>
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $prodi->nama_ProgramStudi }}</td>
-                                    <td>{{ $prodi->id_Jurusan }}</td>
-                                    <td>{{ $prodi->id_Fakultas }}</td>
+                                    <td>{{ $datas->nama_Fakultas }}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('prodi.lihat',$prodi->id_ProgramStudi) }}">Show</a>
-                                        <a class="btn btn-primary" href="{{ route('prodi.edit',$prodi->id_ProgramStudi) }}">Edit</a>
-                                        {!! Form::open(['method' => 'DELETE','route' => ['prodi.hapus', @$prodi->id_ProgramStudi],'style'=>'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        <a class="btn btn-default btn-sm " href="{{ route('fakultas.show',$datas->id_Fakultas) }}">Show</a>
+                                        <a class="btn btn-default btn-sm " href="{{ route('fakultas.edit',$datas->id_Fakultas) }}">Edit</a>
+                                        {!! Form::open(['method' => 'DELETE','route' => ['fakultas.destroy', @$datas->id_Fakultas],'style'=>'display:inline']) !!}
+                                        {!! Form::submit('Delete', ['class' => 'btn btn-sm btn-warning']) !!}
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>
                             @endforeach
                         </table>
-                        {!! $prodis->render() !!}
+                        {!! $fakultas->render() !!}
                     </div>
                 </div>
             </div>

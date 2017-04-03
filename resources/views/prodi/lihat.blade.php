@@ -30,6 +30,10 @@
 
                                 <table class="table table-striped">
                                     <tr>
+                                        <th>Id Program Studi</th>
+                                        <td>{{ $prodis->id_ProgramStudi }}</td>
+                                    </tr>
+                                    <tr>
                                         <th>Program Studi</th>
                                         <td>{{ $prodis->nama_ProgramStudi }}</td>
                                     </tr>
