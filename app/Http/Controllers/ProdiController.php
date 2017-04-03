@@ -26,7 +26,7 @@ class ProdiController extends Controller
         $this->validate($request, [
             'fakultas' => 'required',
             'jurusan' => 'required',
-            'nama_ProgramStudi' => 'required|unique:program_studis',
+            'nama_ProgramStudi' => 'required|unique:program_studi',
         ]);
 
         Prodi::create([

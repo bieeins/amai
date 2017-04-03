@@ -23,4 +23,10 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function prodi()
+    {
+        return $this->belongsTo('App\Prodi','id_ProgramStudi');
+    }
+
 }

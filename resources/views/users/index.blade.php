@@ -24,32 +24,39 @@
                         </div>
 
                         @if ($message = Session::get('success'))
-                            <br />
+                            <br/>
                             <div class="alert alert-success">
                                 <p>{{ $message }}</p>
                             </div>
                         @endif
-                        <br />
-
+                        <br/>
                         <table class="table table-bordered">
                             <tr>
                                 <th>No</th>
+                                <th>Program Studi</th>
                                 <th>Nama Lengkap</th>
-                                <th>username</th>
+                                <th>Username</th>
                                 <th>Email</th>
+                                <th>Roles</th>
+                                <th>Status</th>
+                                <th>Keterangan</th>
                                 <th width="280px">Action</th>
                             </tr>
                             @foreach ($users as $key => $user)
                                 <tr>
                                     <td>{{ ++$i }}</td>
+                                    <td>{{ $user->prodi->nama_ProgramStudi }}</td>
                                     <td>{{ $user->full_Name }}</td>
                                     <td>{{ $user->username }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>{{ $user->roles }}</td>
+                                    <td>{{ $user->status }}</td>
+                                    <td>{{ $user->keterangan }}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('user.lihat',$user->id) }}">Show</a>
-                                        <a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a>
+                                        <a class="btn btn-default" href="{{ route('user.lihat',$user->id) }}">Show</a>
+                                        <a class="btn btn-default" href="{{ route('user.edit',$user->id) }}">Edit</a>
                                         {!! Form::open(['method' => 'DELETE','route' => ['user.hapus', @$user->id],'style'=>'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::submit('Delete', ['class' => 'btn btn-warning']) !!}
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>

@@ -14,4 +14,9 @@ class Prodi extends Model
         'id_ProgramStudi',
         'nama_ProgramStudi',
     ];
+
+    public function jurusan(){
+        return $this->hasOne('App\Jurusan','id_Jurusan');
+    }
 }
+
