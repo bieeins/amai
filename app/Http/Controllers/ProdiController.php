@@ -4,28 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Jurusan;
 use App\Prodi;
-use App\Fakultas;
-use App\User;
 use Illuminate\Http\Request;
+use App\User;
+use App\Fakultas;
 
 class ProdiController extends Controller
 {
     public function getIndex(Request $request)
     {
-        $prodis = Prodi::paginate(5);
-        $jumlah_prodi = Prodi::count();
-        return view('prodi.index', compact('prodis', 'jumlah_prodi'))
+        $prodis = Prodi::OrderBy('id_ProgramStudi', 'DESC')->paginate(5);
+        return view('prodi.index', compact('prodis'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     public function getTambah()
     {
-        $jurusan = Jurusan::All();
         $fakultas = Fakultas::All();
-        return view('prodi.tambah', compact('jurusan', 'fakultas'));
+        $jurusan = Jurusan::All();
+        return view('prodi.tambah', compact('fakultas', 'jurusan'));
 
     }
-
     public function postTambah(Request $request)
     {
         $this->validate($request, [
@@ -53,8 +51,8 @@ class ProdiController extends Controller
     public function getEdit($id)
     {
         $prodis = Prodi::Find($id);
-        $jurusan = Jurusan::all();
-        $fakultas = Fakultas::all();
+        $fakultas = Fakultas::All();
+        $jurusan = Jurusan::All();
         return view('prodi.edit', compact('prodis', 'fakultas', 'jurusan'));
 
     }
@@ -71,7 +69,6 @@ class ProdiController extends Controller
         return redirect()->route('prodi.index')
             ->with('success', 'Prodi updated successfully');
     }
-
     public function Hapus($id)
     {
         //find result by id and delete

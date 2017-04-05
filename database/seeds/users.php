@@ -21,14 +21,6 @@ class users extends Seeder
         ];
         DB::table('users')->insert($user);
 
-//        DB::table('users')->insert([
-//            'id_ProgramStudi' => 1,
-//            'username' => 'admin',
-//            'full_Name' => 'Administrator',
-//            'email' => 'admin@gmail.com',
-//            'password' => bcrypt('123123'),
-//            'roles' => 'superadmin',
-//            'status' => 'enable',
-//        ]);
+
     }
 }
