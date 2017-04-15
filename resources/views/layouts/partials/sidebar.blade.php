@@ -40,8 +40,8 @@
                 <ul class="treeview-menu">
                     <li class="active"><a href="{{url('users')}}"><i class='fa fa-users'></i> <Span>User</Span> </a></li>
                     <li><a href="{{url('fakultas')}}"><i class='fa fa-institution'></i> <Span>Fakultas</Span> </a></li>
-                    <li><a href="{{url('jurusan')}}"><i class='fa  fa-mortar-board'></i> <Span>Jurusan</Span> </a></li>
-                    <li><a href="{{url('prodi')}}"><i class='fa  fa-mortar-board'></i> <Span>Program Studi</Span> </a></li>
+                    <li><a href="{{url('jurusan')}}"><i class='fa fa-mortar-board'></i> <Span>Jurusan</Span> </a></li>
+                    <li><a href="{{url('prodi')}}"><i class='fa fa-mortar-board'></i> <Span>Program Studi</Span> </a></li>
                     <li><a href="{{url('#')}}"><i class='fa  fa-mortar-board'></i> <Span>Pertanyaan</Span> </a></li>
                     <li><a href="{{url('#')}}"><i class='fa  fa-mortar-board'></i> <Span>Periode</Span> </a></li>
                     <li><a href="{{url('#')}}"><i class='fa  fa-mortar-board'></i> <Span>#</Span> </a></li>
