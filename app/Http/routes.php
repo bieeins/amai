@@ -20,6 +20,9 @@ Route::group(['middleware' => 'auth'], function () {
     #Route jurusan
     Route::resource('jurusan', 'JurusanController');
 
+    #Route periode
+    Route::resource('periode', 'PeriodeController');
+
     #Route fakultas
     Route::resource('fakultas', 'FakultasController');
 

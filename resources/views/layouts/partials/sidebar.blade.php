@@ -43,7 +43,7 @@
                     <li><a href="{{url('jurusan')}}"><i class='fa fa-mortar-board'></i> <Span>Jurusan</Span> </a></li>
                     <li><a href="{{url('prodi')}}"><i class='fa fa-mortar-board'></i> <Span>Program Studi</Span> </a></li>
                     <li><a href="{{url('#')}}"><i class='fa  fa-mortar-board'></i> <Span>Pertanyaan</Span> </a></li>
-                    <li><a href="{{url('#')}}"><i class='fa  fa-mortar-board'></i> <Span>Periode</Span> </a></li>
+                    <li><a href="{{url('periode')}}"><i class='fa  fa-mortar-board'></i> <Span>Periode</Span> </a></li>
                     <li><a href="{{url('#')}}"><i class='fa  fa-mortar-board'></i> <Span>#</Span> </a></li>
 
                 </ul>
