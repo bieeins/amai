@@ -1,7 +1,6 @@
 <?php
 
 Route::get('datatable', ['uses' => 'ProdiController@data']);
-
 Route::get('datatable/getdata', [
     'as' => 'datatable.getdata',
     'uses' => 'ProdiController@getdata'
@@ -24,15 +23,16 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+    #Route standar
+    Route::resource('standar', 'StandarController');
+    #Route sub standar
+    Route::resource('substandar', 'SubStandarController');
     #Route jurusan
     Route::resource('jurusan', 'JurusanController');
-
     #Route periode
     Route::resource('periode', 'PeriodeController');
-
     #Route fakultas
     Route::resource('fakultas', 'FakultasController');
-
     #Route perfix prodi
     Route::group(['prefix' => 'prodi'], function () {
         Route::get('/', [

@@ -42,14 +42,12 @@ class PeriodeController extends Controller
             'nama_periode' => 'required',
             'awal_periode' => 'required',
             'akhir_periode' => 'required',
-//            'status' => 'required',
         ]);
 
         Periode::create([
             'nama_Periode' => $request['nama_periode'],
             'awal_Periode' => $request['awal_periode'],
             'akhir_Periode' => $request['akhir_periode'],
-//            'status_Periode' => $request['status'],
         ]);
         return redirect()->route('periode.index')
             ->with('success', 'Periode created successfully');
@@ -89,10 +87,9 @@ class PeriodeController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-//            'nama_Periode' => $request['nama_periode'],
-            'awal_Periode' => $request['awal_periode'],
-            'akhir_Periode' => $request['akhir_periode'],
-            'status_Periode' => $request['status'],
+            'nama_periode' => 'required',
+            'awal_periode' => 'required',
+            'akhir_periode' => 'required',
         ]);
 
         Periode::find($id)->update([
