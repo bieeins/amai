@@ -1,5 +1,12 @@
 <?php
 
+Route::get('datatable', ['uses' => 'ProdiController@data']);
+
+Route::get('datatable/getdata', [
+    'as' => 'datatable.getdata',
+    'uses' => 'ProdiController@getdata'
+]);
+
 Route::get('/', function () {
     return view('welcome');
 });

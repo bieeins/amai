@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    Program Studi
+    Periode
 @endsection
 @section('contentheader_title')
-    Program Studi Management
+    Periode Management
 @endsection
 
 
@@ -13,14 +13,14 @@
         <div class="row">
             <div class="col-md-11 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color: #dd4b39;color: #ffffff">Detail Prodi</div>
+                    <div class="panel-heading" style="background-color: #dd4b39;color: #ffffff">Detail Periode</div>
 
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="">
-                                    <a class="btn btn-primary btn-sm pull-left" href="{{ route('prodi.tambah') }}"> Tambah Prodi</a>
-                                    <a class="btn btn-primary btn-sm pull-right" href="{{ route('prodi.index') }}">Back</a>
+                                    <a class="btn btn-primary btn-sm pull-left" href="{{ route('periode.create') }}"> Tambah Periode</a>
+                                    <a class="btn btn-primary btn-sm pull-right" href="{{ route('periode.index') }}">Back</a>
                                 </div>
                             </div>
                         </div>
@@ -30,20 +30,24 @@
 
                                 <table class="table table-striped">
                                     <tr>
-                                        <th>Id Program Studi</th>
-                                        <td>{{ $prodis->id_ProgramStudi }}</td>
+                                        <th>Id Periode</th>
+                                        <td>{{ $periode->id_Periode }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Program Studi</th>
-                                        <td>{{ $prodis->nama_ProgramStudi }}</td>
+                                        <th>Nama Periode</th>
+                                        <td>{{ $periode->nama_Periode }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Jurusan</th>
-                                        <td>{{ $prodis->jurusan->nama_Jurusan }}</td>
+                                        <th>Awal Periode</th>
+                                        <td>{{ $periode->awal_Periode }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Fakultas</th>
-                                        <td>{{ $prodis->fakultas->nama_Fakultas }}</td>
+                                        <th>Akhir Periode</th>
+                                        <td>{{ $periode->akhir_Periode }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Status Periode</th>
+                                        <td>{{ $periode->status_Periode }}</td>
                                     </tr>
 
                                 </table>

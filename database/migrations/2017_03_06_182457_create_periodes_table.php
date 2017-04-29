@@ -15,9 +15,9 @@ class CreatePeriodesTable extends Migration
         Schema::create('periode', function (Blueprint $table) {
             $table->increments('id_Periode');
             $table->string('nama_Periode');
-            $table->date('awal_Periode');
-            $table->date('akhir_Periode');
-            $table->string('status_Periode',10);
+            $table->string('awal_Periode',15);
+            $table->string('akhir_Periode',15);
+            $table->string('status_Periode',10)->default('tutup');
             $table->timestamps();
         });
     }

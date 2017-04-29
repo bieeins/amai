@@ -34,24 +34,26 @@
                         <table class="table table-hover table-bordered table-striped">
                             <tr>
                                 <th>No</th>
-                                <th>Fakultas</th>
-                                <th>Jurusan</th>
-                                <th>Nama Prodi</th>
+                                <th>Nama Periode</th>
+                                <th>Awal Periode</th>
+                                <th>Akhir Periode</th>
+                                <th>Status Periode</th>
                                 <th width="">Action</th>
                             </tr>
 
                             @foreach ($periode as $key => $data)
                                 <tr>
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $data->fakultas->nama_Fakultas }}</td>
-                                    <td>{{ $data->jurusan->nama_Jurusan }}</td>
-                                    <td>{{ $data->nama_ProgramStudi }}</td>
+                                    <td>{{ $data->nama_Periode }}</td>
+                                    <td>{{ $data->awal_Periode }}</td>
+                                    <td>{{ $data->akhir_Periode }}</td>
+                                    <td>{{ $data->status_Periode }}</td>
                                     <td>
                                         <a class="btn btn-default btn-sm"
-                                           href="{{ route('periode.show',$data->id_ProgramStudi) }}">Show</a>
+                                           href="{{ route('periode.show',$data->id_Periode) }}">Show</a>
                                         <a class="btn btn-default btn-sm"
-                                           href="{{ route('periode.edit',$data->id_ProgramStudi) }}">Edit</a>
-                                        {!! Form::open(['method' => 'DELETE','route' => ['periode.destroy', @$data->id_ProgramStudi],'style'=>'display:inline']) !!}
+                                           href="{{ route('periode.edit',$data->id_Periode) }}">Edit</a>
+                                        {!! Form::open(['method' => 'DELETE','route' => ['periode.destroy', @$data->id_Periode],'style'=>'display:inline']) !!}
                                         {!! Form::submit('Delete', ['class' => 'btn btn-sm btn-warning']) !!}
                                         {!! Form::close() !!}
                                     </td>

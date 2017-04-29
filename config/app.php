@@ -157,7 +157,13 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class
+        Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
+
+        Yajra\Oci8\Oci8ServiceProvider::class,
+        Laracasts\Generators\GeneratorsServiceProvider::class,
+        Roumen\Sitemap\SitemapServiceProvider::class,
+        Barryvdh\Snappy\ServiceProvider::class,
 
 
     ],
@@ -208,7 +214,10 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
 
-    ],
+
+      ],
 
 ];
