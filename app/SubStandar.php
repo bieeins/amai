@@ -14,4 +14,10 @@ class SubStandar extends Model
         'subStandar',
         'bobot',
     ];
+
+    public function standar()
+    {
+        return $this->belongsTo('App\Standar', 'id_Standar');
+    }
 }
+

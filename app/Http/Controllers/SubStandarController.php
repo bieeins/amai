@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SubStandar;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,9 +14,11 @@ class SubStandarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $substandar = SubStandar::OrderBy('id_SubStandar', 'DESC')->paginate(5);
+        return view('substandar.index', compact('substandar'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
