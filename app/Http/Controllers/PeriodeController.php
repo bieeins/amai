@@ -87,7 +87,7 @@ class PeriodeController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'nama_periode' => 'required',
+//            'nama_periode' => 'required',
             'awal_periode' => 'required',
             'akhir_periode' => 'required',
         ]);
