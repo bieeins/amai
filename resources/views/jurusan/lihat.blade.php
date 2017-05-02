@@ -19,7 +19,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="">
-                                    <a class="btn btn-primary btn-sm pull-left" href="{{ route('jurusan.create') }}"> Tambah Prodi</a>
+                                    <a class="btn btn-primary btn-sm pull-left" href="{{ route('jurusan.create') }}"> Tambah Jurusan</a>
                                     <a class="btn btn-primary btn-sm pull-right" href="{{ route('jurusan.index') }}">Back</a>
                                 </div>
                             </div>

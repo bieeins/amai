@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pertanyaan;
+use App\SubStandar;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -28,7 +29,8 @@ class PertanyaanController extends Controller
      */
     public function create()
     {
-        //
+        $substandar = SubStandar::All();
+        return view('pertanyaan.tambah',compact('substandar'));
     }
 
     /**
@@ -39,7 +41,21 @@ class PertanyaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'id_SubStandar' => 'required',
+            'pertanyaan' => 'required',
+            'standar_Nilai' => 'required',
+            'status' => 'required',
+        ]);
+
+        Pertanyaan::create([
+            'id_SubStandar' => $request['id_SubStandar'],
+            'pertanyaan' => $request['pertanyaan'],
+            'standar_Nilai' => $request['standar_Nilai'],
+            'status' => $request['status'],
+        ]);
+        return redirect()->route('pertanyaan.index')
+            ->with('success', 'Pertanyaan created successfully');
     }
 
     /**
@@ -50,7 +66,8 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
-        //
+        $pertanyaan = Pertanyaan::Find($id);
+        return view('pertanyaan.lihat',compact('pertanyaan'));
     }
 
     /**
@@ -61,7 +78,9 @@ class PertanyaanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pertanyaan = Pertanyaan::Find($id);
+        $substandar = SubStandar::All();
+        return view('pertanyaan.edit', compact('pertanyaan', 'substandar'));
     }
 
     /**
@@ -73,7 +92,16 @@ class PertanyaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'id_SubStandar' => 'required',
+            'pertanyaan' => 'required',
+            'standar_Nilai' => 'required',
+            'status' => 'required',
+        ]);
+
+        Pertanyaan::Find($id)->update($request->all());
+        return redirect()->route('pertanyaan.index')
+            ->with('success', 'Pertanyaan updated successfully');
     }
 
     /**
@@ -84,6 +112,11 @@ class PertanyaanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //find result by id and delete
+        Pertanyaan::find($id)->delete();
+
+        //Redirecting to index() method
+        return redirect()->route('pertanyaan.index')
+            ->with('success', 'Pertanyaan Delete successfully');
     }
 }

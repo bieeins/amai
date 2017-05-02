@@ -33,37 +33,45 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group has-feedback">
+                                <select name="id_SubStandar" class="form-control">
+                                    <option value="">Pilih Sub Standar</option>
+                                    @foreach ($substandar as $data)
+                                        <option value="{{ $data->id_SubStandar }}">{{ $data->subStandar }}</option>
+                                    @endforeach
+                                </select>
 
-                                <input type="text" class="form-control" placeholder="Nama Periode"
-                                       name="nama_periode"
-                                       value="{{ old('nama_periode') }}"/>
-                                <span class="fa fa-institution form-control-feedback"></span>
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label class="">Awal Periode</label>
-                                <input type="text" id="date" class="form-control" placeholder=""
-                                       name="awal_periode"
-                                       value="{{ old('awal_periode') }}"/>
-                                <span class="fa fa-institution form-control-feedback"></span>
+                                <textarea class="form-control" name="pertanyaan" style="width:100%;" rows="3"
+                                          placeholder="Pertanyaan">{{ old('pertanyaan') }}</textarea>
                             </div>
 
+
                             <div class="form-group has-feedback">
-                                <label class="">Akhir Periode</label>
-                                <input type="text" id="datex" class="form-control" placeholder=""
-                                       name="akhir_periode"
-                                       value="{{ old('akhir_periode') }}"/>
+
+                                <input type="text" class="form-control" placeholder="Standar Nilai"
+                                       name="standar_Nilai"
+                                       value="{{ old('standar_Nilai') }}"/>
                                 <span class="fa fa-institution form-control-feedback"></span>
                             </div>
 
                             {{--<div class="form-group has-feedback">--}}
-                                {{--<select class="form-control" name="status" id="">--}}
-                                    {{--<option value="" selected="selected">Pilih Status</option>--}}
-                                    {{--<option value="buka">Buka</option>--}}
-                                    {{--<option value="tutup">Tutup</option>--}}
-                                {{--</select>--}}
-
+                                {{--<label class="">Awal Periode</label>--}}
+                                {{--<input type="text" id="date" class="form-control" placeholder=""--}}
+                                       {{--name="awal_periode"--}}
+                                       {{--value="{{ old('awal_periode') }}"/>--}}
+                                {{--<span class="fa fa-institution form-control-feedback"></span>--}}
                             {{--</div>--}}
+                            {{----}}
+                            <div class="form-group has-feedback">
+                                <select class="form-control" name="status" id="">
+                                    <option value="" selected="selected">Pilih Status</option>
+                                    <option value="aktif">aktif</option>
+                                    <option value="nonaktif">tidak aktif</option>
+                                </select>
+
+                            </div>
 
                             <div class="row">
 
