@@ -25,6 +25,8 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => 'auth'], function () {
     #Route standar
     Route::resource('standar', 'StandarController');
+    #Route pertanyaan
+    Route::resource('pertanyaan', 'PertanyaanController');
     #Route sub standar
     Route::resource('substandar', 'SubStandarController');
     #Route jurusan

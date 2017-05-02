@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Standar;
 use App\SubStandar;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,8 @@ class SubStandarController extends Controller
      */
     public function create()
     {
-        //
+        $standar = Standar::All();
+        return view('substandar.tambah',compact ('standar'));
     }
 
     /**
@@ -39,7 +41,18 @@ class SubStandarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'substandar' => 'required',
+            'id_Standar' => 'required',
+
+        ]);
+
+        SubStandar::create([
+            'subStandar' => $request['substandar'],
+            'id_Standar' => $request['id_Standar'],
+        ]);
+        return redirect()->route('substandar.index')
+            ->with('success', 'Sub Standar created successfully');
     }
 
     /**
@@ -50,7 +63,8 @@ class SubStandarController extends Controller
      */
     public function show($id)
     {
-        //
+        $substandar = SubStandar::Find($id);
+        return view('substandar.lihat', compact('substandar'));
     }
 
     /**
@@ -61,7 +75,10 @@ class SubStandarController extends Controller
      */
     public function edit($id)
     {
-        //
+        $substandar = SubStandar::Find($id);
+        $standar = Standar::All();
+        return view('substandar.edit', compact('substandar', 'standar'));
+
     }
 
     /**
@@ -73,7 +90,14 @@ class SubStandarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'id_Standar' => 'required',
+            'subStandar' => 'required',
+        ]);
+
+        SubStandar::Find($id)->update($request->all());
+        return redirect()->route('substandar.index')
+            ->with('success', 'SubStandar updated successfully');
     }
 
     /**
@@ -84,6 +108,11 @@ class SubStandarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //find result by id and delete
+        SubStandar::find($id)->delete();
+
+        //Redirecting to index() method
+        return redirect()->route('substandar.index')
+            ->with('success', 'SubStandar Delete successfully');
     }
 }

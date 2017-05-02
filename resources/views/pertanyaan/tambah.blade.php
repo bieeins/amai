@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    Sub Standar
+    Pertanyaan
 @endsection
 @section('contentheader_title')
-   Sub Standar Management
+    Pertanyaan Management
 @endsection
 
 @section('main-content')
     <div class="row">
         <div class="box-header with-border">
             <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: #dd4b39;color: #ffffff">Tambah SubStandar</div>
+                <div class="panel-heading" style="background-color: #dd4b39;color: #ffffff">Tambah Pertanyaan</div>
                 <div class="panel-body">
 
                     @if (count($errors) > 0)
@@ -29,27 +29,41 @@
 
                     <div class="register-box-body col-sm-7">
 
-                        <form action="{{ route('substandar.store') }}" method="post">
+                        <form action="{{ route('pertanyaan.store') }}" method="post">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group has-feedback">
-                                <label>Standar</label>
-                                <select name="id_Standar" class="form-control">
-                                    <option value="">Pilih Standar</option>
-                                    @foreach ($standar as $data)
-                                        <option value="{{ $data->id_Standar }}">{{ $data->standar }}</option>
-                                    @endforeach
-                                </select>
 
+                                <input type="text" class="form-control" placeholder="Nama Periode"
+                                       name="nama_periode"
+                                       value="{{ old('nama_periode') }}"/>
+                                <span class="fa fa-institution form-control-feedback"></span>
                             </div>
 
                             <div class="form-group has-feedback">
-                                <label>Sub Standar</label>
-                                <input type="text" class="form-control" placeholder="Sub Standar"
-                                       name="substandar"
-                                       value="{{ old('substandar') }}"/>
+                                <label class="">Awal Periode</label>
+                                <input type="text" id="date" class="form-control" placeholder=""
+                                       name="awal_periode"
+                                       value="{{ old('awal_periode') }}"/>
                                 <span class="fa fa-institution form-control-feedback"></span>
                             </div>
+
+                            <div class="form-group has-feedback">
+                                <label class="">Akhir Periode</label>
+                                <input type="text" id="datex" class="form-control" placeholder=""
+                                       name="akhir_periode"
+                                       value="{{ old('akhir_periode') }}"/>
+                                <span class="fa fa-institution form-control-feedback"></span>
+                            </div>
+
+                            {{--<div class="form-group has-feedback">--}}
+                                {{--<select class="form-control" name="status" id="">--}}
+                                    {{--<option value="" selected="selected">Pilih Status</option>--}}
+                                    {{--<option value="buka">Buka</option>--}}
+                                    {{--<option value="tutup">Tutup</option>--}}
+                                {{--</select>--}}
+
+                            {{--</div>--}}
 
                             <div class="row">
 
@@ -58,7 +72,7 @@
                                 </div><!-- /.col -->
                                 <div class="col-md-2 pull-right">
                                     <a class="btn btn-primary btn-sm btn-block btn-flat"
-                                       href="{{ route('substandar.index') }}">Back</a>
+                                       href="{{ route('pertanyaan.index') }}">Back</a>
                                 </div>
                             </div>
                         </form>
