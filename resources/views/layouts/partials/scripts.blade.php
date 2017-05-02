@@ -23,7 +23,7 @@
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
-            dateFormat: 'yy-mm',
+            dateFormat: 'yy-mm-dd',
             onClose: function (dateText, inst) {
                 $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
             }
@@ -32,7 +32,7 @@
             changeYear: true,
             changeMonth: true,
             showButtonPanel: true,
-            dateFormat: 'yy-mm',
+            dateFormat: 'yy-mm-dd',
             onClose: function (dateText, inst) {
                 $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
             }
@@ -40,7 +40,7 @@
     });
 </script>
 <style>
-    .ui-datepicker-calendar, .ui-datepicker-prev, .ui-datepicker-next {
+    .ui-datepicker-prev, .ui-datepicker-next {
         display: none;
     }
 </style>
