@@ -23,6 +23,8 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+    #Route amai
+    Route::resource('amai', 'AmaiController');
     #Route standar
     Route::resource('standar', 'StandarController');
     #Route pertanyaan

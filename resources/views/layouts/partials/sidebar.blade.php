@@ -46,7 +46,7 @@
                     <li><a href="{{url('periode')}}"><i class='fa  fa-mortar-board'></i> <Span>Periode</Span> </a></li>
                     <li><a href="{{url('standar')}}"><i class='fa  fa-mortar-board'></i> <Span>Standar</Span> </a></li>
                     <li><a href="{{url('substandar')}}"><i class='fa  fa-mortar-board'></i> <Span>Sub Standar</Span> </a></li>
-                    <li><a href="{{url('#')}}"><i class='fa  fa-mortar-board'></i> <Span>#</Span> </a></li>
+                    <li><a href="{{url('amai')}}"><i class='fa  fa-mortar-board'></i> <Span>AMAI</Span> </a></li>
 
                 </ul>
             </li>
