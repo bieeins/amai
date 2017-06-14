@@ -25,6 +25,7 @@
 <div class="container">
     <br/>
     <br/>
+
     <table id="data" class="table table-hover table-condensed table-bordered" style="width:100%">
         <thead>
         <tr>
@@ -43,6 +44,7 @@
 
 
 <script type="text/javascript">
+
     $(document).ready(function () {
         Table = $('#data').DataTable({
             dom: 'Blfrtip',
