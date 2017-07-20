@@ -36,7 +36,7 @@
                                 <th>No</th>
                                 <th>Standar</th>
                                 <th>Sub Standar</th>
-                                <th width="">Action</th>
+                                <th width="170px">Action</th>
                             </tr>
 
                             @foreach ($substandar as $key => $data)

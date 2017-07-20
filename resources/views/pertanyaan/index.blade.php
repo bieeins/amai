@@ -38,7 +38,7 @@
                                 <th>Pertanyaan</th>
                                 <th>Standar Nilai</th>
                                 <th>Status</th>
-                                <th width="">Action</th>
+                                <th width="170px">Action</th>
                             </tr>
 
                             @foreach ($pertanyaan as $key => $data)

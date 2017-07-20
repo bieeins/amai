@@ -13,7 +13,7 @@ class ProdiController extends Controller
 {
     public function data()
     {
-        return view('data');
+        return view('datax');
     }
 
     public function getdata()

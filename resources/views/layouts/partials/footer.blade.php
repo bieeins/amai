@@ -5,5 +5,5 @@
         <b>AMAI LPPMP</b>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2015</strong>
+    <strong>Copyright &copy; 2017</strong>
 </footer>

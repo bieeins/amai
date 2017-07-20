@@ -18,6 +18,19 @@ class Pertanyaan extends Model
 
     public function substandar()
     {
-        return $this->belongsTo('App\SubStandar','id_SubStandar');
+        return $this->belongsTo('App\SubStandar', 'id_SubStandar');
+    }
+//public function standar()
+//    {
+//        return $this->belongsTo('App\Standar', 'id_Standar');
+//    }
+
+    public function standar()
+    {
+//        return $this->hasManyThrough('App\Standar', 'App\SubStandar');
+        return $this->hasManyThrough(
+            'App\Standar', 'App\SubStandar',
+            'id_Standar', 'id_SubStandar', 'id_SubStandar'
+        );
     }
 }

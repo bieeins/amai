@@ -15,7 +15,7 @@ class StandarController extends Controller
      */
     public function index(Request $request)
     {
-        $standar = Standar::OrderBy('id_Standar', 'DESC')->paginate(5);
+        $standar = Standar::OrderBy('id_Standar', 'ASC')->paginate(5);
         return view('standar.index', compact('standar'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
