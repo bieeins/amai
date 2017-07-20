@@ -37,6 +37,7 @@
                                     <option value="">Pilih Sub Standar</option>
                                     @foreach ($substandar as $data)
                                         <option value="{{ $data->id_SubStandar }}">{{ $data->subStandar }}</option>
+                                        {{--<option value="{{ $data->id_SubStandar }}">{{ $data->id_Standar }}. {{$data->standar->standar }}  => {{ $data->id_SubStandar }}. {{ $data->subStandar }}</option>--}}
                                     @endforeach
                                 </select>
 
@@ -56,14 +57,6 @@
                                 <span class="fa fa-institution form-control-feedback"></span>
                             </div>
 
-                            {{--<div class="form-group has-feedback">--}}
-                                {{--<label class="">Awal Periode</label>--}}
-                                {{--<input type="text" id="date" class="form-control" placeholder=""--}}
-                                       {{--name="awal_periode"--}}
-                                       {{--value="{{ old('awal_periode') }}"/>--}}
-                                {{--<span class="fa fa-institution form-control-feedback"></span>--}}
-                            {{--</div>--}}
-                            {{----}}
                             <div class="form-group has-feedback">
                                 <select class="form-control" name="status" id="">
                                     <option value="" selected="selected">Pilih Status</option>
