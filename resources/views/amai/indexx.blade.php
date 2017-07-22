@@ -47,32 +47,23 @@
                                     @endfor
                                 </ul>
                                 <div>
-                                    @foreach ($pertanyaan as $perta)
-                                        <div id="step-{{++$iii}}" class="form-group">
-                                            <?php ?>
 
-                                            <h4>{{$perta->substandar->standar->standar}} </h4>
-                                            {{--@foreach ($substandar as $sub)--}}
-                                            <form action="#" method="get">
-                                                @for($xx = 1; $xx <= $sC; $xx++)
-                                                    <div class="form-group">
-                                                        @if ($perta->substandar->standar->id_Standar === $xx )
-                                                            <label for="name">{{$loop }}</label>
-                                                            <input type="text" class="form-control" name="name"
-                                                                   placeholder="Write " required>
-                                                            <div class="help-block with-errors"></div>
-                                                        @endif
+                                    <div id="step-1" class="">
+                                        <h4>{{$jd}} </h4>
+                                        @foreach ($perstd1 as $std1)
 
-                                                    </div>
-                                                @endfor
-                                            </form>
-                                            {{--@endforeach--}}
-                                        </div>
-                                    @endforeach
+                                            <div>
+                                                {{ ++$i}}. {{$std1->pertanyaan }} <br/>
+                                                <textarea name="ket  " size="50" placeholder="Keterangan"></textarea>
+                                                <input type="file" class="input-sm" name="file"/>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                            {{--{{dd($tes)}};--}}
+                        {{--{{dd($tes)}};--}}
                         <table class="table table-hover table-striped table-bordered">
                             <tr>
                                 <th>No</th>
@@ -95,7 +86,7 @@
                                     <td>{{ $perta->standar_Nilai }}</td>
                                     {{--<td>{{ ucfirst($perta->roles)  }}</td>--}}
                                     {{--<td>{{ ucfirst($user->status)  }}</td>--}}
-                                    {{--                                    <td>{{ $user->keterangan }}</td>--}}
+                                    {{--<td>{{ $user->keterangan }}</td>--}}
                                     <td>
                                         {{--<a class="btn btn-default btn-sm" href="{{ route('user.lihat',$user->id) }}">Show</a>--}}
                                         {{--<a class="btn btn-default btn-sm"--}}

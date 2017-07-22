@@ -17,27 +17,24 @@ class AmaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function input(Request $request)
     {
         $sC = Standar::all()->count();
-        $id_stan = Standar::all();
-        for ($x = 1; $x < $sC; $x++) {
-            $loop = Pertanyaan::all()->where('id_SubStandar', $id_stan);
 
-        }
-
-        $tes = "dod";
-        $standar = Standar::all();
-        $substandar = SubStandar::all();
-        $fakultas = Fakultas::all();
-        $pertanyaan = Pertanyaan::all()->where('status', 'aktif');
-
-        $perstd1 = DB::table('pertanyaan')
+        $query1 = DB::table('pertanyaan')
             ->join('substandar', 'pertanyaan.id_SubStandar', '=', 'substandar.id_SubStandar')
             ->join('standar', 'substandar.id_Standar', '=', 'standar.id_Standar')
             ->where('pertanyaan.status', '=', 'aktif')
             ->where('substandar.id_SubStandar', '=', '1')
-            ->where('standar.id_Standar', '=', '1')->get();
+            ->where('standar.id_Standar', '=', '1');
+
+        $perstd1 = $query1->get();
+
+        $judul = $query1->addSelect('standar')->get();
+        foreach ($judul as $jdl ) {
+            $jd = $jdl->standar;
+        }
+
 
         $perstd2 = DB::table('pertanyaan')
             ->join('substandar', 'pertanyaan.id_SubStandar', '=', 'substandar.id_SubStandar')
@@ -46,13 +43,7 @@ class AmaiController extends Controller
             ->where('substandar.id_SubStandar', '=', '2')
             ->where('standar.id_Standar', '=', '1')->get();
 
-        $count = DB::table('pertanyaan')
-            ->join('substandar', 'pertanyaan.id_SubStandar', '=', 'substandar.id_SubStandar')
-            ->join('standar', 'substandar.id_Standar', '=', 'standar.id_Standar')
-            ->where('pertanyaan.status', '=', 'aktif')
-            ->where('standar.id_Standar', '=', '1')->count();
-
-        return view('amai.indexx', compact('count', 'pertanyaan', 'fakultas', 'standar', 'substandar', 'sC', 'loop', 'perstd1', 'perstd2','tes'))->with('iii', 0)->with('i', 0);
+        return view('amai.indexx', compact('count','jd', 'pertanyaan', 'fakultas', 'standar', 'substandar', 'sC', 'loop', 'perstd1', 'perstd2','tes'))->with('iii', 0)->with('i', 0);
     }
 
     /**

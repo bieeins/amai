@@ -23,8 +23,8 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    #Route amai
-    Route::resource('amai', 'AmaiController');
+   #Route amai
+//    Route::resource('amai', 'AmaiController');
     #Route standar
     Route::resource('standar', 'StandarController');
     #Route pertanyaan
@@ -37,6 +37,39 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('periode', 'PeriodeController');
     #Route fakultas
     Route::resource('fakultas', 'FakultasController');
+
+    #Route perfix amai
+    Route::group(['prefix' => 'amai'], function () {
+        Route::get('/input', [
+            'uses' => 'AmaiController@input',
+            'as' => 'amai.input'
+        ]);
+        Route::get('/lihat/{id}', [
+            'uses' => 'ProdiController@getLihat',
+            'as' => 'prodi.lihat'
+        ]);
+        Route::get('/edit/{id}', [
+            'uses' => 'ProdiController@getEdit',
+            'as' => 'prodi.edit'
+        ]);
+        Route::put('/edit/{id}', [
+            'uses' => 'ProdiController@putEdit',
+            'as' => 'prodi.edit'
+        ]);
+        Route::get('/tambah', [
+            'uses' => 'ProdiController@getTambah',
+            'as' => 'prodi.tambah'
+        ]);
+        Route::post('/tambah', [
+            'uses' => 'ProdiController@postTambah',
+            'as' => 'prodi.tambah'
+        ]);
+        Route::Delete('/hapus/{id}', [
+            'uses' => 'ProdiController@Hapus',
+            'as' => 'prodi.hapus'
+        ]);
+    });
+
     #Route perfix prodi
     Route::group(['prefix' => 'prodi'], function () {
         Route::get('/', [

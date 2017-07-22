@@ -46,18 +46,24 @@
                     <li><a href="{{url('periode')}}"><i class='fa  fa-mortar-board'></i> <Span>Periode</Span> </a></li>
                     <li><a href="{{url('standar')}}"><i class='fa  fa-mortar-board'></i> <Span>Standar</Span> </a></li>
                     <li><a href="{{url('substandar')}}"><i class='fa  fa-mortar-board'></i> <Span>Sub Standar</Span> </a></li>
-                    <li><a href="{{url('amai')}}"><i class='fa  fa-mortar-board'></i> <Span>AMAI</Span> </a></li>
+
 
                 </ul>
             </li>
-            <li ><a href="#"><i class='fa fa-link'></i>
-                    <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
+            {{--<li ><a href="#"><i class='fa fa-link'></i>--}}
+                    {{--<span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>--}}
 
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>Menu Multilevel</span> <i
+                <a href="#"><i class='fa fa-database'></i> <span>INPUT AMAI</span> <i
                             class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
+                    <li><a href="{{url('amai/standar1')}}"><i class='fa  fa-mortar-board'></i> <Span>Standar 1</Span> </a></li>
+                    <li><a href="{{url('amai/standar2')}}"><i class='fa  fa-mortar-board'></i> <Span>Standar 2</Span> </a></li>
+                    <li><a href="{{url('amai/standar3')}}"><i class='fa  fa-mortar-board'></i> <Span>Standar 3</Span> </a></li>
+                    <li><a href="{{url('amai/standar4')}}"><i class='fa  fa-mortar-board'></i> <Span>Standar 4</Span> </a></li>
+                    <li><a href="{{url('amai/standar5')}}"><i class='fa  fa-mortar-board'></i> <Span>Standar 5</Span> </a></li>
+                    <li><a href="{{url('amai/standar6')}}"><i class='fa  fa-mortar-board'></i> <Span>Standar 6</Span> </a></li>
+                    <li><a href="{{url('amai/standar7')}}"><i class='fa  fa-mortar-board'></i> <Span>Standar 7</Span> </a></li>
                     <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
                 </ul>
             </li>
