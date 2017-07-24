@@ -40,9 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     #Route perfix amai
     Route::group(['prefix' => 'amai'], function () {
-        Route::get('/input', [
+        Route::get('/standar1', [
             'uses' => 'AmaiController@input',
-            'as' => 'amai.input'
+            'as' => 'amai.standar1'
         ]);
         Route::get('/lihat/{id}', [
             'uses' => 'ProdiController@getLihat',
